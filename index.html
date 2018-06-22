@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name"viewport" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/card.css">
+    <script src="actions.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <title>Cards</title>
+    <script>
+        var lower_margin_top = -15;
+        var lower_btn_margin_top = 10;
+        var lower_btn_margin_left = -200;
+
+        var right_btn_margin_top = -20;
+        var right_btn_margin_left = 360;
+        var right_margin_top = -150;
+        var right_margin_left = 400;
+
+        var chartContainer_margin_left = 190;
+    </script>
+    <style>
+        .card, #card{
+        width: 400px;
+        height: 200px;
+        background-color: #0000001e;
+        text-align: center;
+        font-style: italic;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 4px;
+        }
+        #lower{
+            visibility: hidden;
+            width: 400px;
+            height: 0px;
+            background-color: #E6E6E6;
+            transition: 0.4s;
+            margin-top:-15px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 4px;
+        }
+        #lower_btn_id{
+            margin-top:10px;
+            margin-left:-200px;
+            float: none;
+        }
+        #right_btn_id{
+            margin-left: 360px;
+            margin-top: -20px;
+            float: right;
+        }
+        #text_id{
+            text-align: center;
+            width: 350px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #chartContainer{
+            height: 120px; width: 200px;
+            margin-left: 190px;
+        }
+        #graph_text_div{
+            float: left;
+            width: 180px;
+            height: 120px;
+        }
+        #lower_text_div{
+            width:250px;
+        }
+        #right{
+            position: absolute;
+            visibility: hidden;
+            width: 0px;
+            height: 150px;
+            background-color:#FF8000;
+            transition: 0.5s;
+            margin-left: 400px;
+            margin-top: -150px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            float: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body >
+                <div id="object_1">
+                        <div class='card' id=card>
+                           <p id="text_id">Portus</p>
+                            <img id='right_btn_id' src="photos/arrow_right.png" width="25px" height="25px" onclick="right_btn_clicked();"></img>
+                           <div id=graph_text_div>
+                               <p>These graphs show ping stats...</p>
+                           </div>
+                           <div id="chartContainer"></div>
+                           <img id=lower_btn_id src="photos/arrow_down.png" width="25px" height="25px" onclick="lower_btn_clicked('object_1');"></img>
+                        </div>
+                       <!-- Right pop up object -->
+                        <div id="right">
+                           <p>Some text</p>
+                        </div>
+                       <!-- Lower pop up object -->
+                        <div id="lower">   
+                               <div id=lower_text_div>
+                                   <p>These graphs show ping stats...</p>
+                                   <p>Ping occurrence: ...</p>
+                                   <p>Visibility: ...</p>
+                               </div>
+                        </div>
+                </div>
+
+                <!-- <div id="object_2">
+                    <div class='card' id=card>
+                       <p id="text_id">Portus</p>
+                        <img id='right_btn_id' src="photos/arrow_right.png" width="25px" height="25px" onclick="right_btn_clicked();" ></img>
+                       <div id=graph_text_div>
+                           <p>These graphs show ping stats...</p>
+                       </div>
+                       <div id="chartContainer"></div>
+                       <img id=lower_btn_id src="photos/arrow_down.png" width="25px" height="25px" onclick="lower_btn_clicked('object_2');"></img>
+                    </div> -->
+                   <!-- Right pop up object -->
+                    <!-- <div id="right">
+                       <p>Some text</p>
+                    </div> -->
+                   <!-- Lower pop up object -->
+                    <!-- <div id="lower">   
+                           <div id=lower_text_div>
+                               <p>These graphs show ping stats...</p>
+                               <p>Ping occurrence: ...</p>
+                               <p>Visibility: ...</p>
+                           </div>
+                    </div>
+            </div> -->
+ <!-- Line chart -->
+ <script type="text/javascript">
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer",
+      {
+        title:{
+        text: " "
+        },
+         data: [
+        {
+          type: "line",
+          dataPoints: [
+          { label: " ", label:" ", y:10},
+          { label: " ", label:" ", y:15},
+          { label: " ", label:" ", y:8},
+          { label: " ", label:" ", y:3},
+          ]
+        },
+        {
+          type: "line",
+          dataPoints: [
+          { label: " ", label:" ", y:7},
+          { label: " ", label:" ", y:9},
+          { label: " ", label:" ",y:18},
+          { label: " ", label:" ", y:4},
+          ]
+        }
+        ],
+        axisY:{     
+      valueFormatString: " "
+    }
+      });
+      chart.render();
+    }/**/
+    </script>
+    <p id=test>x: , y:</p>
+</body>
+</html>
